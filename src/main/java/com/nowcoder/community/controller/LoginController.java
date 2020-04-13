@@ -72,7 +72,7 @@ public class LoginController implements CommunityConstant {
         if (result == ACTIVATION_SUCCESS) {
             model.addAttribute("msg", "激活成功，可以正式开始使用了");
             model.addAttribute("target", "/login");
-        } else if(result == ACTIVATION_REPEAT) {
+        } else if (result == ACTIVATION_REPEAT) {
             model.addAttribute("msg", "该账号已经被激活过了");
             model.addAttribute("target", "/index");
         } else {
