@@ -40,6 +40,7 @@ public class DiscussPostController implements CommunityConstant {
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     @ResponseBody
     public String addDiscussPost(String title, String content) {
+
         User user = hostHolder.getUser();
         if (user == null) {
             return CommunityUtil.getJSONString(403, "您还未登录");
