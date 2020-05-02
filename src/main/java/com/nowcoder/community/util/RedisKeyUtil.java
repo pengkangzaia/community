@@ -13,6 +13,10 @@ public class RedisKeyUtil {
     private static final String PREFIX_TICKET = "ticket";
     private static final String PREFIX_USER = "user";
 
+    private static final String PREFIX_UV = "uv";
+    private static final String PREFIX_DAU = "dau";
+
+
     // 一个实体的赞
     public static String getEntityLikeKey(int entityType, int entityId) {
         return PREFIX_ENTITY_LIKE + SPLIT + entityType + SPLIT + entityId;
@@ -49,6 +53,26 @@ public class RedisKeyUtil {
     // 获取用户的key
     public static String getUserKey(int userId) {
         return PREFIX_TICKET + SPLIT + userId;
+    }
+
+    // 单日uv
+    public static String getUvKey(String date) {
+        return PREFIX_UV + SPLIT + date;
+    }
+
+    // 区间uv
+    public static String getUvKey(String startDate, String endDate) {
+        return PREFIX_UV + SPLIT + startDate + SPLIT + endDate;
+    }
+
+    // 单日dau
+    public static String getDauKey(String date) {
+        return PREFIX_DAU + SPLIT + date;
+    }
+
+    // 区间dau
+    public static String getDauKey(String startDate, String endDate) {
+        return PREFIX_DAU + SPLIT + startDate + SPLIT + endDate;
     }
 
 }

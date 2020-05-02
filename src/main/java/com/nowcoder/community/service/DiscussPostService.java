@@ -52,4 +52,14 @@ public class DiscussPostService {
         return discussPostMapper.updateCommentCount(id, commentCount);
     }
 
+    // 更新帖子的类别：是否置顶
+    public int updateType(int id, int type) {
+        return discussPostMapper.updateType(id, type);
+    }
+
+    // 更新帖子状态：普通？加精？删除？
+    public int updateStatus(int id, int status) {
+        return discussPostMapper.updateStatus(id, status);
+    }
+
 }
