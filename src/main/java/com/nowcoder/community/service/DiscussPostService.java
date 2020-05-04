@@ -18,8 +18,8 @@ public class DiscussPostService {
     @Autowired
     private SensitiveFilter sensitiveFilter;
 
-    public List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit) {
-        return discussPostMapper.selectDiscussPosts(userId, offset, limit);
+    public List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit, int orderMode) {
+        return discussPostMapper.selectDiscussPosts(userId, offset, limit, orderMode);
     }
 
     public int findDiscussPostRows(int userId) {
@@ -60,6 +60,11 @@ public class DiscussPostService {
     // 更新帖子状态：普通？加精？删除？
     public int updateStatus(int id, int status) {
         return discussPostMapper.updateStatus(id, status);
+    }
+
+    // 更新帖子分数
+    public int updateScore(int id, double score) {
+        return discussPostMapper.updateScore(id, score);
     }
 
 }

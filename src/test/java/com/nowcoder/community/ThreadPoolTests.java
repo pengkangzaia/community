@@ -1,5 +1,6 @@
 package com.nowcoder.community;
 
+import com.nowcoder.community.service.AlphaService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -23,6 +24,9 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolTests {
 
     private static final Logger logger = LoggerFactory.getLogger(ThreadPoolTests.class);
+
+    @Autowired
+    private AlphaService alphaService;
 
     // JDK普通线程池
     private ExecutorService executorService = Executors.newFixedThreadPool(5);
@@ -111,6 +115,24 @@ public class ThreadPoolTests {
 
         sleep(30000);
     }
+
+    // 5. Spring普通线程池(简化版)
+    @Test
+    public void testThreadPollTaskExecutorSimple() {
+        for (int i = 0; i < 10; i++) {
+            alphaService.execute1();
+        }
+
+        sleep(10000);
+    }
+
+    // 6. Spring定时线程池(简化版)
+    @Test
+    public void testThreadPoolTaskScheduleSimple() {
+        sleep(30000);
+    }
+
+
 
 
 }
